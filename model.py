@@ -14,8 +14,15 @@ def make_empty_board():
     # TODO: create a 6x7 integer array of zeros and return it
     return np.zeros((6,7),dtype=int)
 
-# Step 2 - column_top_row (not yet solved)
-# TODO: implement
+# Step 2 - column_top_row
+def column_top_row(board, column):
+    """Return the lowest empty row in `column`, or -1 if the column is full."""
+    # TODO: scan the column from the bottom up and return the first empty row index
+ 
+    for i in range(len(board)):
+        if board[len(board)-1-i][column]==0:
+            return len(board)-1-i
+    return -1
 
 # Step 3 - drop_piece (not yet solved)
 # TODO: implement
