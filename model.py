@@ -263,8 +263,17 @@ def build_policy_value_net(in_channels=2, hidden_channels=16, num_columns=7):
     # TODO: build an nn.Module with backbone, policy_head, value_head attributes
     return Build_policy(in_channels, hidden_channels, num_columns)
 
-# Step 21 - policy_value_forward (not yet solved)
-# TODO: implement
+# Step 21 - policy_value_forward
+import torch
+import torch.nn as nn
+
+def policy_value_forward(net, encoded_board):
+    """Run encoded_board (B,2,6,7) through net and return (logits, value)."""
+    # TODO: call the network on the encoded board and return its two outputs
+    features = net.backbone(encoded_board)
+    logits = net.policy_head(features) 
+    value = net.value_head(features)
+    return logits, value
 
 # Step 22 - action_mask (not yet solved)
 # TODO: implement
