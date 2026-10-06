@@ -98,8 +98,20 @@ def four_in_a_row_vertical(board):
                 return player
     return 0
 
-# Step 8 - four_in_a_row_diagonal_down_right (not yet solved)
-# TODO: implement
+# Step 8 - four_in_a_row_diagonal_down_right
+def four_in_a_row_diagonal_down_right(board):
+    # TODO: scan every down-right diagonal of the 6x7 board for four matching non-zero pieces
+    n, m = board.shape
+    # Down-right diagonals can only start from rows 0-2 and columns 0-3
+    for i in range(n - 3):
+        for j in range(m - 3):
+            player = board[i][j]
+            if player != 0 and \
+               board[i+1][j+1] == player and \
+               board[i+2][j+2] == player and \
+               board[i+3][j+3] == player:
+                return player
+    return 0
 
 # Step 9 - four_in_a_row_diagonal_up_right (not yet solved)
 # TODO: implement
