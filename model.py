@@ -170,8 +170,16 @@ def other_player(player):
     else:
         return 1
 
-# Step 14 - step_env (not yet solved)
-# TODO: implement
+# Step 14 - step_env
+def step_env(board, column, player):
+    # TODO: drop piece for player, then return (new_board, done, winner, next_player).
+    new_board=drop_piece(board, column, player)
+    winner= check_winner(new_board)
+    done=False
+    if winner!=0:
+        done=True
+    next_player=other_player(player)
+    return (new_board,done,winner,next_player)
 
 # Step 15 - encode_board (not yet solved)
 # TODO: implement
