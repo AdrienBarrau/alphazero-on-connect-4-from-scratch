@@ -275,8 +275,16 @@ def policy_value_forward(net, encoded_board):
     value = net.value_head(features)
     return logits, value
 
-# Step 22 - action_mask (not yet solved)
-# TODO: implement
+# Step 22 - action_mask
+import numpy as np
+
+def action_mask(board):
+    # TODO: return a length-7 boolean mask, True where the column is legal
+    res=np.array([False for i in range (len(board[0]))])
+    liste_valid=valid_moves(board)
+    for ind in liste_valid:
+        res[ind]=True
+    return res
 
 # Step 23 - masked_policy_logits (not yet solved)
 # TODO: implement
