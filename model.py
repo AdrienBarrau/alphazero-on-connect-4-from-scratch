@@ -56,11 +56,47 @@ def valid_moves(board):
             res.append(i)
     return res
 
-# Step 6 - four_in_a_row_horizontal (not yet solved)
-# TODO: implement
+# Step 6 - four_in_a_row_horizontal
+def four_in_a_row_horizontal(board):
+    # TODO: scan every row for four consecutive matching non-zero pieces horizontally
+    n,m=np.shape(board)
+    for i in range(n):
+        count=0       #running count of same color
+        player=board[i][0]  #keep track of last color, empty, 1 or 2
+        for j in range(1,m):
+            if board[i][j]==0:
+                count=0
+                player=0
+            elif board[i][j]==player:
+                count+=1
+            elif board[i][j]!=player:
+                count=0
+                player=board[i][j]
 
-# Step 7 - four_in_a_row_vertical (not yet solved)
-# TODO: implement
+            if count==3:
+                return player
+    return 0
+
+# Step 7 - four_in_a_row_vertical
+def four_in_a_row_vertical(board):
+    # TODO: scan every column for four consecutive matching non-zero pieces vertically
+    n,m=np.shape(board)
+    for i in range(n):
+        count=0       #running count of same color
+        player=board[i][0]  #keep track of last color, empty, 1 or 2
+        for j in range(1,m):
+            if board[i][j]==0:
+                count=0
+                player=0
+            elif board[i][j]==player:
+                count+=1
+            elif board[i][j]!=player:
+                count=0
+                player=board[i][j]
+
+            if count==4:
+                return player
+    return 0
 
 # Step 8 - four_in_a_row_diagonal_down_right (not yet solved)
 # TODO: implement
