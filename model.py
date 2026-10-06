@@ -113,8 +113,20 @@ def four_in_a_row_diagonal_down_right(board):
                 return player
     return 0
 
-# Step 9 - four_in_a_row_diagonal_up_right (not yet solved)
-# TODO: implement
+# Step 9 - four_in_a_row_diagonal_up_right
+def four_in_a_row_diagonal_up_right(board):
+    # TODO: scan every up-right diagonal for four consecutive matching non-zero pieces
+    n, m = board.shape
+    # Up-right diagonals can only start from rows 3-5 and columns 0-3
+    for i in range(3, n):
+        for j in range(m - 3):
+            player = board[i][j]
+            if player != 0 and \
+               board[i-1][j+1] == player and \
+               board[i-2][j+2] == player and \
+               board[i-3][j+3] == player:
+                return player
+    return 0
 
 # Step 10 - check_winner (not yet solved)
 # TODO: implement
