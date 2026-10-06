@@ -162,8 +162,13 @@ def is_terminal(board):
     else:
         return (True,int(check_winner(board)))
 
-# Step 13 - other_player (not yet solved)
-# TODO: implement
+# Step 13 - other_player
+def other_player(player):
+    # TODO: return the opponent's player code (1 <-> 2)
+    if player==1:
+        return 2
+    else:
+        return 1
 
 # Step 14 - step_env (not yet solved)
 # TODO: implement
