@@ -81,10 +81,10 @@ def four_in_a_row_horizontal(board):
 def four_in_a_row_vertical(board):
     # TODO: scan every column for four consecutive matching non-zero pieces vertically
     n,m=np.shape(board)
-    for i in range(n):
+    for j in range(m):
         count=0       #running count of same color
-        player=board[i][0]  #keep track of last color, empty, 1 or 2
-        for j in range(1,m):
+        player=board[0][j]  #keep track of last color, empty, 1 or 2
+        for i in range(1,n):
             if board[i][j]==0:
                 count=0
                 player=0
@@ -94,7 +94,7 @@ def four_in_a_row_vertical(board):
                 count=0
                 player=board[i][j]
 
-            if count==4:
+            if count==3:
                 return player
     return 0
 
