@@ -350,11 +350,28 @@ def node_q_value(node):
     else:
         return node['value_sum']/node['visit_count']
 
-# Step 29 - ucb_score (not yet solved)
-# TODO: implement
+# Step 29 - ucb_score
+import math
 
-# Step 30 - select_best_child (not yet solved)
-# TODO: implement
+def ucb_score(parent, child, c_puct=1.5):
+    # TODO: return Q(child) + c_puct * prior * sqrt(N_parent) / (1 + N_child)
+    return node_q_value(child) + c_puct * child['prior'] * math.sqrt(parent['visit_count']) / (1 + child['visit_count'])
+
+# Step 30 - select_best_child
+import math
+def select_best_child(node, legal_actions, c_puct=1.5):
+    # TODO: return (action, child) maximizing PUCT among legal children of node.
+    maxi=-math.inf
+    best=None
+    action=None
+    for ind in legal_actions:
+        child=node['children'][ind]
+        if ucb_score(node,child,c_puct)>maxi:
+            maxi=ucb_score(node,child,c_puct)
+            best=child  
+            action=ind
+
+    return (action,best)
 
 # Step 31 - select_leaf (not yet solved)
 # TODO: implement
